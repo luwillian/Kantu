@@ -2,6 +2,10 @@ from pydantic import BaseModel
 
 class Pedidos(BaseModel):
     id_agencia: str
+    email_comercial: str
+    nome: str
+    whatsapp: str
+    cnpj: str
     destino: str
     endereco_saida: str
     endereco_retorno: str
