@@ -22,4 +22,6 @@ class PEDIDOS(db.Model):
     status = db.Column(db.String(1), nullable=False)
 
     def __repr__(self):
-        return f"Pedido('{self.origem}', '{self.destino}', '{self.data_ida}', '{self.horario_ida}', '{self.data_retorno}', '{self.horario_retorno}', '{self.tipo_veiculo}', '{self.guia}')"
+        return f"Pedido('{self.origem}', '{self.destino}',\
+              '{self.data_ida}', '{self.horario_ida}', '{self.data_retorno}', \
+                '{self.horario_retorno}', '{self.tipo_veiculo}', '{self.guia}')"
