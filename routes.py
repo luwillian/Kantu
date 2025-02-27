@@ -1,11 +1,11 @@
 from flask import render_template, request, redirect, url_for
 from app import app, db
-from models import PEDIDOS
+from models import PEDIDOS, AGENCIA
 from datetime import datetime
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('inicio.html')
 
 @app.route('/cadastroPedido', methods=['POST','GET'])
 def cadastroPedido():
@@ -29,5 +29,32 @@ def cadastroPedido():
         db.session.commit()
         return redirect(url_for("index")) 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
+@app.route('/cadastroAgencia', methods=['POST','GET'])
+def cadastroAgencia():
+    if request.method == "POST":
+        nome = request.form.get("nome")
+        cnpj = request.form.get("cnpj")
+        cadastur = request.form.get("cadastur")
+        cep = request.form.get("cep")
+        rua = request.form.get("rua")
+        numero = request.form.get("numero")
+        bairro = request.form.get("bairro")
+        cidade = request.form.get("cidade")
+        estado = request.form.get("estado")
+        telefone = request.form.get("telefone")
+        email = request.form.get("email")
+        senha = request.form.get("senha")
+        data = datetime.now().strftime("%Y-%m-%d")
+        hora = datetime.now().strftime("%H:%M:%S")
+        status = 1
+
+        agencia = AGENCIA(nome=nome, cnpj=cnpj, cadastur=cadastur, cep=cep, rua=rua, numero=numero, bairro=bairro, cidade=cidade, estado=estado, telefone=telefone, email=email, senha=senha, data=data, hora=hora, status=status)
+        db.session.add(agencia)
+        db.session.commit()
+        return redirect(url_for("index"))
+    
+@app.route('/listarPedidos')
+def listarPedidos():
+    pedidos = PEDIDOS.query.all()
+    return render_template('listarPedidos.html', pedidos=pedidos)
