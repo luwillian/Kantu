@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantu</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/assets/css/theme.css" rel="stylesheet" />
+    <link href="../static/assets/css/personal.css" rel="stylesheet" />
+    <!--    Favicons-->
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="../static/assets/img/favicons/apple-touch-icon.png"> -->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="../static/assets/img/favicons/favicon-32x32.png"> -->
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="../static/assets/img/favicons/favicon-16x16.png"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/assets/img/logoHDKantu.png">
+    <meta name="msapplication-TileImage" content="../static/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-lucid" data-navbar-on-scroll="data-navbar-on-scroll">
+    <div class="container"><a class="navbar-brand" href="{{url_for('index')}}"><img src="../static/assets/img/logoHDKantu.png" height="80" alt="logo" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+      <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
+          <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="">Dashboard</a></li>
+          <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium">Novo Pedido</a></li>
+          <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium">Nome Agencia</a></li>
+          <li class="nav-item px-3 px-xl-4"><a class="btn btn-outline-dark order-1 order-lg-0 fw-medium" href="{{url_for('index')}}">Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {%block content%}
+  {%endblock%}
+</body>
+</html>

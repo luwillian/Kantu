@@ -7,6 +7,10 @@ from datetime import datetime
 def index():
     return render_template('inicio.html')
 
+@app.route('/arealogada')
+def arealogada():
+    return render_template('agenciaDashboard.html')
+
 @app.route('/cadastroPedido', methods=['POST','GET'])
 def cadastroPedido():
     if request.method == "POST":
@@ -28,6 +32,11 @@ def cadastroPedido():
         db.session.add(pedido)
         db.session.commit()
         return redirect(url_for("index")) 
+    
+@app.route('/listaPedidos')
+def listaPedidos():
+    pedidos = PEDIDOS.query.all()
+    return render_template('listarPedidos.html', pedidos=pedidos)
 
 
 @app.route('/cadastroAgencia', methods=['POST','GET'])
@@ -58,3 +67,7 @@ def cadastroAgencia():
 def listarPedidos():
     pedidos = PEDIDOS.query.all()
     return render_template('listarPedidos.html', pedidos=pedidos)
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
